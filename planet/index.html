@@ -153,7 +153,329 @@
       <a href="http://planet.ocaml.org/rss20.xml"><img src=".././img/rss20.png"/></a>
       <a href="http://planet.ocaml.org/opml.xml"><img src=".././img/opml.png"/></a>
     </div>
-    <div class="planet"><a name="a71b4294da2067aa511bdbf21edf6438"></a><span class="rss-header"><span class="rss-title"><a href="http://amirchaudhry.com/migration-plan-ocaml-org"> Migration plan for the OCaml.org redesign</a></span>&nbsp;&mdash;&nbsp;<span class="rss-author">Amir Chaudhry</span>, <span class="rss-date">06 Nov 2013</span></span><span class="rss-description"><div id="post1"><p>We’re close to releasing the new design of ocaml.org but need help from the OCaml community to identify and fix bugs before we switch next week.</p>
+    <div class="planet"><a name="6669830c2e0c05e85b490aca7e1d38e0"></a><span class="rss-header"><span class="rss-title"><a href="https://ocaml.janestreet.com/?q=node/117"> The making of Real World OCaml</a></span>&nbsp;&mdash;&nbsp;<span class="rss-author">Jane Street</span>, <span class="rss-date">11 Nov 2013</span></span><span class="rss-description"><div id="post1"><p><a href="http://amzn.to/1afkSIe">
+<img src="https://realworldocaml.org/media/img/coversmall.png" align="left" width="150"/>
+</a></p>
+
+<p>It's taken a good long while, but Real World OCaml is finally done.
+You can read it for free at
+<a href="http://realworldocaml.org">http://realworldocaml.org</a>, or buy a
+<a href="http://amzn.to/1afkSIe">hardcopy</a> or an
+<a href="http://amzn.to/1gzzxTO">ebook</a> <a href="http://oreil.ly/S2Vtdh">version</a>.</p>
+
+<p>The idea for the book was born in a bar in Tokyo in 2011.  After
+talk-filled day at ICFP, a few of us, Ashish Agarwal and Marius
+Eriksen, Anil, and myself, went out drinking.  We were all bellyaching
+over the lack of a high-quality OCaml book in English, and, emboldened
+by the Guinness and egged on by Ashish and Marius, Anil and I decided
+that we were just going to have to go ahead and write the book
+ourselves.  We brought Jason into the project soon after.</p>
+
+<p>From the very beginning, Anil and I had different visions for the
+book.  From my perspective, it was a simple proposition: there was no
+good book available, and we were going to write one.  The goal was to
+document the state of the art so as to make it more accessible.</p>
+
+<p>Anil's vision was grander.  He argued that writing a book is an
+opportunity to discover all of the things that are just too
+embarrassing to explain.  And, once discovered, you needed to find a
+way to get all of those things fixed before the book was published.</p>
+
+<a onclick="switchContent('post1','post2')" class="btn" href="#6669830c2e0c05e85b490aca7e1d38e0">Read more...</a></div><div id="post2" style="display: none"><p><a href="http://amzn.to/1afkSIe">
+<img src="https://realworldocaml.org/media/img/coversmall.png" align="left" width="150"/>
+</a></p>
+
+<p>It's taken a good long while, but Real World OCaml is finally done.
+You can read it for free at
+<a href="http://realworldocaml.org">http://realworldocaml.org</a>, or buy a
+<a href="http://amzn.to/1afkSIe">hardcopy</a> or an
+<a href="http://amzn.to/1gzzxTO">ebook</a> <a href="http://oreil.ly/S2Vtdh">version</a>.</p>
+
+<p>The idea for the book was born in a bar in Tokyo in 2011.  After
+talk-filled day at ICFP, a few of us, Ashish Agarwal and Marius
+Eriksen, Anil, and myself, went out drinking.  We were all bellyaching
+over the lack of a high-quality OCaml book in English, and, emboldened
+by the Guinness and egged on by Ashish and Marius, Anil and I decided
+that we were just going to have to go ahead and write the book
+ourselves.  We brought Jason into the project soon after.</p>
+
+<p>From the very beginning, Anil and I had different visions for the
+book.  From my perspective, it was a simple proposition: there was no
+good book available, and we were going to write one.  The goal was to
+document the state of the art so as to make it more accessible.</p>
+
+<p>Anil's vision was grander.  He argued that writing a book is an
+opportunity to discover all of the things that are just too
+embarrassing to explain.  And, once discovered, you needed to find a
+way to get all of those things fixed before the book was published.</p>
+
+<p>It was Anil's grander vision that we followed, and to good effect.
+It's not that we fixed the problems ourselves.  We solved some
+problems directly, but by and large, we ended up getting help from
+those who were better positioned than us to fix the problems at hand.</p>
+
+<p>Here are a few examples of pieces that came together over those two
+years.</p>
+
+<ul>
+<li><em>OPAM.</em> The core work on OPAM was done by Thomas Gazagnaire at
+OCamlPro (funded by Jane Street), with Anil collaborating closely.
+This is probably the biggest improvement of the bunch.  It's hard to
+overstate how transformational OPAM is.  Before OPAM, installing
+OCaml libraries was a complex chore.  Now it's a joy.</li>
+<li><em>The Core release process.</em> We decided early on to base the book on
+Core, Jane Street's alternative to OCaml's standard library.  But
+the release process around Core was too monolithic and too hard for
+external collaborators.  We reorganized the process completely,
+moving to weekly releases to github, with the repos broken out into
+manageable components.  Most of this work was done by Jeremie Dimino
+and Yury Sulsky at Jane Street.</li>
+<li><em>Ctypes.</em> Anil was in charge of writing the section on C bindings,
+and he decided that the standard way was just too painful to
+explain.  That was the germ of ctypes, a library, written by Jeremy
+Yallop, that lets you build C bindings entirely from within OCaml,
+with a easy and simple interface.</li>
+<li><em>Short paths.</em> One of the real pains associated with working with
+Core is the heavy use that Core makes of the module system.  OCaml's
+error messages, unfortunately, do not cope with this terribly well,
+leading to absurd types in error messages, so you might see a type
+rendered as <code>Core.Std.Int.Map.Key.t Core.Std.Option.Monad_infix</code>
+where it could just as well have been rendered as <code>int option</code>.  We
+worked with Jacques Garrigue to implement a better heuristic for
+picking type names (suggested by Stephen Weeks, who implemented the
+same heuristic for Mlton).  This is now available in the 4.01
+version of the compiler, via the <code>-short-paths</code> patch.</li>
+</ul>
+
+<p>This period also saw the founding of OCaml Labs, a lab at Cambridge
+University devoted to improving OCaml as a platform, with Anil at the
+head.</p>
+
+<p>And we're not done.  OCaml Labs and OCamlPro are still working on
+improving OPAM and building out a curated OCaml Platform that's built
+on top of OPAM.  There's ongoing work on improving documentation
+generation so we can have better online API docs.  Jacques Garrigue
+and Leo White are working on adding module aliases to OCaml which will
+greatly improve compilation time for libraries like Core that need to
+manage large namespaces.</p>
+
+<p>And there are more projects that are improving OCaml and its
+surrounding infrastructure that have no direct connection to Real
+World OCaml, like:</p>
+
+<ul>
+<li>Frederic Bour and Thomas Refis' work on Merlin, a tool for providing
+IDE-like tooling from within editors like VI and Emacs.</li>
+<li>Mark Shinwell's work on improving GDB support for OCaml,</li>
+<li>Fabrice le Fessant's work improving OCaml's interactions with
+performance tools like perf. </li>
+<li>Work that Ashish Agarwal, Christophe Troestler, Esther Baruk, and
+now many others, have poured into improving the
+<a href="http://ocaml.org">http://ocaml.org</a> website.</li>
+</ul>
+
+<p>Real World OCaml is of course a personal milestone for Jason, Anil and
+myself (and for Leo White, Jeremy Yallop and Stephen Weeks, who made
+some key contributions to the text).  But viewed from a broader
+perspective, it's just one part of the increasing swirl of activity in
+the OCaml community.</p>
+
+<p>OCaml has been a great language for a very long time.  Now, we're
+growing a social and technological infrastructure around it to match.</p><a onclick="switchContent('post2','post1')" class="btn" href="#6669830c2e0c05e85b490aca7e1d38e0">Hide</a></div></span>
+<a name="270583dd49e7070c6e708ac7a28ba506"></a><span class="rss-header"><span class="rss-title"><a href="http://le-gall.net/sylvain+violaine/blog/index.php?post/2013/11/08/opam2debian%2C-a-tool-to-create-Debian-binary-package-out-of-OPAM"> opam2debian, a tool to create Debian binary package out of OPAM</a></span>&nbsp;&mdash;&nbsp;<span class="rss-author">Sylvain Le Gall</span>, <span class="rss-date">10 Nov 2013</span></span><span class="rss-description"><div id="post3"><p>One week ago, <a href="http://lists.ocaml.org/pipermail/opam-devel/2013-October/000240.html">a thread in opam-devel mailing list</a> started about the possibility to create binary snapshot to distribute OPAM packages. Distributing binary packages with everything already compiled is pretty useful when you want to make sure that everyone has the same version of packages installed and you don't want to spend time configuring all the computer of your colleague.</p>
+
+
+<p>As a matter of fact I was also interested to see that happening. I have several computers where I want to install a set of packages and I want to snapshot OPAM archives when I am ready for an upgrade. I have tested for a long time another source distribution: <a href="http://godi.camlcity.org">GODI</a>. I even wrote a <a href="https://plus.google.com/+SylvainLeGall/posts/ahELQPy98Zb">puppet module</a> to drive it. This was a fun experience, but as with any source only distribution, there are some drawbacks. Especially even if it is fully automated, you get a lot of errors and timeout when trying to build automatically from source.</p>
+
+
+<p>This is how <a href="http://forge.ocamlcore.org/projects/opam2debian">opam2debian</a> has started. I wanted a replacement for puppet-godi that takes advantage of OPAM and the possibility to distribute my set of packages everywhere quickly.</p>
+
+
+<p>The goals of this project are:</p>
+<a onclick="switchContent('post3','post4')" class="btn" href="#270583dd49e7070c6e708ac7a28ba506">Read more...</a></div><div id="post4" style="display: none"><p>One week ago, <a href="http://lists.ocaml.org/pipermail/opam-devel/2013-October/000240.html">a thread in opam-devel mailing list</a> started about the possibility to create binary snapshot to distribute OPAM packages. Distributing binary packages with everything already compiled is pretty useful when you want to make sure that everyone has the same version of packages installed and you don't want to spend time configuring all the computer of your colleague.</p>
+
+
+<p>As a matter of fact I was also interested to see that happening. I have several computers where I want to install a set of packages and I want to snapshot OPAM archives when I am ready for an upgrade. I have tested for a long time another source distribution: <a href="http://godi.camlcity.org">GODI</a>. I even wrote a <a href="https://plus.google.com/+SylvainLeGall/posts/ahELQPy98Zb">puppet module</a> to drive it. This was a fun experience, but as with any source only distribution, there are some drawbacks. Especially even if it is fully automated, you get a lot of errors and timeout when trying to build automatically from source.</p>
+
+
+<p>This is how <a href="http://forge.ocamlcore.org/projects/opam2debian">opam2debian</a> has started. I wanted a replacement for puppet-godi that takes advantage of OPAM and the possibility to distribute my set of packages everywhere quickly.</p>
+
+
+<p>The goals of this project are:</p>
+<ol>
+<li>generate a Debian binary package with all the dependencies set on external packages (like libpcre)</li>
+<li>use OPAM to build everything</li>
+<li>use standard Debian process to build package</li>
+<li>create snapshot of OPAM repository that allow to rebuild exactly the same thing on different arches</li>
+</ol>
+
+<p>The real challenge behind opam2debian was to be able to use standard Debian process to create package to get all the power of dependencies computation provided by the Debian maintainer scripts. My great achievement on this topic was to find a tool called <a href="http://proot.me/">proot</a> that allows you to bind mount a directory as a user. This is an achievement because it allows to create a package using a directory where you are not allowed to write (i.e. <em>/opt/opam2debian</em> directory which is owned by root). This is a way to do it on any Jenkins builder without root access and a standard way for Debian to build packages.</p>
+
+
+<h3>Usage example</h3>
+
+
+<p>I need to compile a set of package to install on all my Jenkins builder. Here is the list of packages I need and I also want to use the latest OCaml version. I want to build a Debian package for Debian Wheezy which has only OCaml 3.12.1.</p>
+
+
+<p>Building the package:</p>
+
+<pre>$ opam2debian create --build --name opam2debian-test2 --compiler 4.01.0 \
+ ocamlfind fileutils ocaml-data-notation ocaml-expect ounit \
+ ocamlmod ocamlify oasis yojson sexplib extlib pcre-ocaml \
+ calendar ocaml-inifiles ocamlnet ocurl gettext inotify ocaml-sqlexpr \
+ ocamlrss ocaml-xdg-basedir</pre>
+
+
+<p>Getting the package list right can be tricky because the process will stop at the first error -- and if it is because the last package fails to build it can be long. I have implemented a --keep-build-dir in case you want to tune the package list live.</p>
+
+
+<p>The program will build everything and it can takes quite a while. At the end you get a file <em>opam2debian-test2_20131105_amd64.deb</em> which has a reasonable size of 232MB. That is big, but it looks like the biggest directory is <em>$OPAMROOT/4.01.0/build</em>, I am not sure if I can remove it but we may save some space here (the build directory represents 50% of the package size).</p>
+
+
+<p>Then you can just do a standard Debian installation:</p>
+
+
+<pre>$ sudo dpkg -i opam2debian-test2_20131105_amd64.deb</pre>
+
+
+<p>And you can use it:</p>
+
+
+<pre>$ eval $(opam config env --root /opt/opam2debian/opam2debian-test2/)
+$ which ocamlfind
+ /opt/opam2debian/opam2debian-test2/4.01.0/bin/ocamlfind
+$ ocamlfind list
+ [...]
+ stdlib              (version: [distributed with Ocaml])
+ str                 (version: [distributed with Ocaml])
+ threads             (version: [distributed with Ocaml])
+ threads.posix       (version: [internal])
+ threads.vm          (version: [internal])
+ type_conv           (version: 109.41.00)
+ unidiff             (version: 0.0.2)
+ unix                (version: [distributed with Ocaml])
+ userconf            (version: 0.3.1)
+ xdg-basedir         (version: 0.0.3)
+ xmlm                (version: 1.1.1)
+ yojson              (version: 1.1.5)</pre>
+
+
+<p>A nice thing to note, is that it is a standard OPAM install. You can install, update and upgrade OPAM from there, as root. However, I would recommend not to do it, and just rebuild a newer Debian package to upgrade.</p>
+
+
+<h3>Install</h3>
+
+
+<p>You will need the <a href="http://packages.debian.org/sid/opam">opam</a> and <a href="http://packages.debian.org/sid/proot">proot</a> Debian package available in Debian jessie and sid. You will also need various OCaml libraries (cmdliner, calendar, fileutils and jingoo).</p>
+
+
+<p>Download the opam2debian tarball on the <a href="https://forge.ocamlcore.org/frs/?group_id=348">forge</a>, build  and install it.</p>
+
+
+<p>The project is hosted on <a href="https://github.com/gildor478/opam2debian">github</a>.</p>
+
+
+<h3>Open issues</h3>
+
+
+<p>On the initial list of goals of the project. Not everything is completed. I have still several open issues.</p>
+
+
+<p>In particular 4. (create snapshot of OPAM repository) was blocked by a bug in opam-mk-repo, that prevents snapshots (see <a href="https://github.com/ocaml/opam/pull/977">my pull-request to solve it</a>).</p>
+
+
+<p>Another issues is about licenses of the included files. I should list them all and I need to figure out a way to extract every licences.</p>
+
+
+<p>Submit bugs directly to <a href="https://github.com/gildor478/opam2debian/issues">github</a>.</p><a onclick="switchContent('post4','post3')" class="btn" href="#270583dd49e7070c6e708ac7a28ba506">Hide</a></div></span>
+<a name="9fc76b93fd89f2e19976096b468d4495"></a><span class="rss-header"><span class="rss-title"><a href="http://gallium.inria.fr/blog/overriding-submodules"> Overriding submodules</a></span>&nbsp;&mdash;&nbsp;<span class="rss-author">GaGallium</span>, <span class="rss-date">09 Nov 2013</span></span><span class="rss-description"><div id="post5"><p>A few days ago Jacques-Pascal Deplaix came to ask me this question: when using the <code>include</code> trick to override some definition in a module, how can we also override some definition in a submodule? The answer is short -- just scroll to the last code block -- and may be of interest to some readers.</p>
+
+
+
+
+<h3 id="module-overriding">Module overriding</h3>
+<p>The proposed use-case is the following: you want to write code that looks like it uses the module <code>List</code> from the standard library, but in fact the functions <code>hd</code> and <code>tl</code> are the variants that return <code>option</code> values, because you like that style better than catching exceptions.</p>
+<p>There is a rather well-known trick to do that, which is to prepend the following code at the beginning of your source, or in a separate <code>My_std</code> module you always open first.</p>
+<pre class="sourceCode ocaml"><code class="sourceCode ocaml"><span class="ot">module</span> List = <span class="kw">struct</span>
+  <span class="ot">include</span> List
+  <span class="kw">let</span> hd = <span class="kw">function</span>
+    | [] -&gt; <span class="dt">None</span>
+    | x::_ -&gt; <span class="dt">Some</span> x
+<span class="kw">end</span></code></pre>
+<p>However, you may run into problem if the definition you want to override is not directly in the module, but some of its submodule. Let's consider the following code:</p>
+<pre class="sourceCode ocaml"><code class="sourceCode ocaml"><span class="ot">module</span> Toto = <span class="kw">struct</span>
+    <span class="kw">let</span> x = 1
+    <span class="ot">module</span> Tata = <span class="kw">struct</span>
+      <span class="kw">let</span> y = 2
+    <span class="kw">end</span>
+    <span class="ot">module</span> Titi = <span class="kw">struct</span>
+      <span class="kw">let</span> z = 3
+    <span class="kw">end</span>
+<span class="kw">end</span></code></pre>
+<a onclick="switchContent('post5','post6')" class="btn" href="#9fc76b93fd89f2e19976096b468d4495">Read more...</a></div><div id="post6" style="display: none"><p>A few days ago Jacques-Pascal Deplaix came to ask me this question: when using the <code>include</code> trick to override some definition in a module, how can we also override some definition in a submodule? The answer is short -- just scroll to the last code block -- and may be of interest to some readers.</p>
+
+
+
+
+<h3 id="module-overriding">Module overriding</h3>
+<p>The proposed use-case is the following: you want to write code that looks like it uses the module <code>List</code> from the standard library, but in fact the functions <code>hd</code> and <code>tl</code> are the variants that return <code>option</code> values, because you like that style better than catching exceptions.</p>
+<p>There is a rather well-known trick to do that, which is to prepend the following code at the beginning of your source, or in a separate <code>My_std</code> module you always open first.</p>
+<pre class="sourceCode ocaml"><code class="sourceCode ocaml"><span class="ot">module</span> List = <span class="kw">struct</span>
+  <span class="ot">include</span> List
+  <span class="kw">let</span> hd = <span class="kw">function</span>
+    | [] -&gt; <span class="dt">None</span>
+    | x::_ -&gt; <span class="dt">Some</span> x
+<span class="kw">end</span></code></pre>
+<p>However, you may run into problem if the definition you want to override is not directly in the module, but some of its submodule. Let's consider the following code:</p>
+<pre class="sourceCode ocaml"><code class="sourceCode ocaml"><span class="ot">module</span> Toto = <span class="kw">struct</span>
+    <span class="kw">let</span> x = 1
+    <span class="ot">module</span> Tata = <span class="kw">struct</span>
+      <span class="kw">let</span> y = 2
+    <span class="kw">end</span>
+    <span class="ot">module</span> Titi = <span class="kw">struct</span>
+      <span class="kw">let</span> z = 3
+    <span class="kw">end</span>
+<span class="kw">end</span></code></pre>
+<p>Suppose I want to replace <code>Toto.Tata.y</code> to be of type <code>string</code> rather than <code>int</code>. The obvious thing doesn't work.</p>
+<pre class="sourceCode ocaml"><code class="sourceCode ocaml"><span class="ot">module</span> Totoverride = <span class="kw">struct</span>
+  <span class="ot">include</span> Toto
+  <span class="ot">module</span> Tata = <span class="kw">struct</span>
+    <span class="ot">include</span> Toto<span class="kw">.</span>Tata
+    <span class="kw">let</span> y = <span class="st">"2"</span>
+  <span class="kw">end</span>
+<span class="kw">end</span></code></pre>
+<pre><code>Error: Multiple definition of the module name Tata.
+       Names must be unique in a given structure or signature.</code></pre>
+<p>The problem is that, while OCaml will let you shadow an existing <code>let</code> declaration, it does not accept declaring other sorts of declarations (types, modules, module types...) twice in the same module. Here a <code>Tata</code> submodule is created in <code>Totoverride</code> first at the <code>include Toto</code> point, and then for a second time explicitly.</p>
+<p>One manual solution is to use a signature ascription to remove the <code>Tata</code> submodule from <code>Toto</code> at include time.</p>
+<pre class="sourceCode ocaml"><code class="sourceCode ocaml"><span class="ot">module</span> Totoverride = <span class="kw">struct</span>
+  <span class="ot">include</span> (<span class="dt">Toto</span> : <span class="kw">sig</span>
+             <span class="kw">val</span> x : <span class="dt">int</span>
+             <span class="ot">module</span> Titi : (<span class="kw">sig</span> <span class="kw">val</span> z : <span class="dt">int</span> <span class="kw">end</span>) 
+           <span class="kw">end</span>)
+  <span class="ot">module</span> Tata = <span class="kw">struct</span>
+    <span class="ot">include</span> Toto<span class="kw">.</span>Tata
+    <span class="kw">let</span> y = <span class="st">"2"</span>
+  <span class="kw">end</span>
+<span class="kw">end</span></code></pre>
+<p>The problem with this solution is that you have to repeat most <code>Toto</code>'s signature, which leads to a painful maintenance burden. Not only will changes in <code>Toto</code>'s definition (addition of new fields) require changes in this place, but the compiler will not tell you when such changes happen, <code>Totoverride</code> will just be incomplete with respect to <code>Toto</code>.</p>
+<h3 id="module-type-of-and-destructive-substitution"><code>module type of</code> and Destructive substitution</h3>
+<p>Destructive substitution (<code>with .. := ...</code>) is a newish feature of the OCaml language, as it was added in 3.12 -- released in summer 2010. The <a href="http://caml.inria.fr/pub/docs/manual-ocaml-4.01/extn.html#sec234">documentation in the manual</a> is extremely clear and provides good examples, so if you don't know about it you should just go read it now.</p>
+<p><a href="http://caml.inria.fr/pub/docs/manual-ocaml-4.01/extn.html#sec233"><code>module type of</code></a> was also added in 3.12, and lets you speak about the interface of a module without defining it explicitly: <code>module type of Foo</code> is an interface that <code>Foo</code> satisfies.</p>
+<p>There are subtleties about the semantics of both these constructions, so you should not abuse them unless you want to read papers about module systems -- you probably don't -- to understand why your code doesn't type-check. However, they can be combined in a perfectly reasonable way to remove some type or submodules of a module at inclusion time: <code>module type of Foo with type t := Foo.t</code> is the signature of <code>Foo</code>, minus the type <code>t</code>, and the same thing works for <code>with module</code>. This lets us solve our module overriding problem:</p>
+<pre class="sourceCode ocaml"><code class="sourceCode ocaml"><span class="ot">module</span> Totoverride = <span class="kw">struct</span>
+  <span class="ot">include</span> (<span class="dt">Toto</span> : <span class="ot">module</span> <span class="kw">type</span> <span class="kw">of</span> <span class="dt">Toto</span> <span class="kw">with</span> <span class="ot">module</span> Tata := Toto<span class="kw">.</span><span class="dt">Tata</span>)
+  <span class="ot">module</span> Tata = <span class="kw">struct</span>
+    <span class="ot">include</span> Toto<span class="kw">.</span>Tata
+    <span class="kw">let</span> y = <span class="st">"2"</span>
+  <span class="kw">end</span>
+<span class="kw">end</span></code></pre>
+<h3 id="completeness-is-always-hard">Completeness is always hard</h3>
+<p>This is a neat trick to have in your toolbox, but you should know that it may not satisfy all your module overriding drives. You can remove type and module from a signature, but there are a lot of other OCaml signature items that don't have a corresponding destructive subtitution: module types, classes, class types and exceptions.</p>
+<p>The problem is that it's not always clear what the intended semantics of destructive substitution should be. For example, I'm not really sure what destructive substitution of exception declarations would mean -- exceptions are a kind of blind spot as they don't appear in types. But in any case, if you try to override everything, you'll run into this incompleteness and go add your lament to <a href="http://caml.inria.fr/mantis/view.php?id=5460">the feature request PR#5460</a>, "Replace/rename/remove module types".</p>
+<p>To be honest, the signature language grows pieces by pieces as needs are justified (and semantics are understood), so it's not particularly surprising that it is not complete. There was a notable attempt by Norman Ramsey in 2001 to think about what a more self-sufficient signature languages should be, <a href="http://www.cs.tufts.edu/~nr/pubs/sigcalc.ps">Towards a Calculus of Signatures</a> -- with, I just found out, a draft implementation by <a href="http://www.pfitzenmaier.de/sigcalc.html">Jürgen Pfitzenmaier</a>). The good news is that probably the most important construct (destructive substitution of types) has been integrated since, but otherwise things are going at their own pace.</p><a onclick="switchContent('post6','post5')" class="btn" href="#9fc76b93fd89f2e19976096b468d4495">Hide</a></div></span>
+<a name="a71b4294da2067aa511bdbf21edf6438"></a><span class="rss-header"><span class="rss-title"><a href="http://amirchaudhry.com/migration-plan-ocaml-org"> Migration plan for the OCaml.org redesign</a></span>&nbsp;&mdash;&nbsp;<span class="rss-author">Amir Chaudhry</span>, <span class="rss-date">06 Nov 2013</span></span><span class="rss-description"><div id="post7"><p>We’re close to releasing the new design of ocaml.org but need help from the OCaml community to identify and fix bugs before we switch next week.</p>
 
 <p>Ashish, Christophe, Philippe and I have been discussing how we should go about this and below is the plan for migration. If anyone would like to discuss any of this, then the <a href="http://lists.ocaml.org/listinfo/infrastructure">infrastructure list</a> is the best place to do so.</p>
 
@@ -175,7 +497,7 @@
 </li>
 </ol>
 
-<a onclick="switchContent('post1','post2')" class="btn" href="#a71b4294da2067aa511bdbf21edf6438">Read more...</a></div><div id="post2" style="display: none"><p>We’re close to releasing the new design of ocaml.org but need help from the OCaml community to identify and fix bugs before we switch next week.</p>
+<a onclick="switchContent('post7','post8')" class="btn" href="#a71b4294da2067aa511bdbf21edf6438">Read more...</a></div><div id="post8" style="display: none"><p>We’re close to releasing the new design of ocaml.org but need help from the OCaml community to identify and fix bugs before we switch next week.</p>
 
 <p>Ashish, Christophe, Philippe and I have been discussing how we should go about this and below is the plan for migration. If anyone would like to discuss any of this, then the <a href="http://lists.ocaml.org/listinfo/infrastructure">infrastructure list</a> is the best place to do so.</p>
 
@@ -203,16 +525,16 @@
 
 <p>Since the files are on GitHub, people don’t even need to clone the site locally to make simple edits (or even add new pages). Just click the ‘Edit this page’ link in the footer to be taken to the right file in the repository and GitHub’s editing and pull request features will allow you to make changes and submit updates, all from within your browser (see the <a href="https://help.github.com/articles/creating-and-editing-files-in-your-repository">GitHub Article</a> for details).</p>
 
-<p>There is still work to be done on adding new features but the above changes are already a great improvement to the site and are ready to be reviewed by the OCaml community and merged.</p><a onclick="switchContent('post2','post1')" class="btn" href="#a71b4294da2067aa511bdbf21edf6438">Hide</a></div></span>
+<p>There is still work to be done on adding new features but the above changes are already a great improvement to the site and are ready to be reviewed by the OCaml community and merged.</p><a onclick="switchContent('post8','post7')" class="btn" href="#a71b4294da2067aa511bdbf21edf6438">Hide</a></div></span>
 <a name="e5900cb0c3951424fc6f50fff64ca80d"></a><span class="rss-header"><span class="rss-title"><a href="http://alan.petitepomme.net/cwn/2013.11.05.html"> Caml Weekly News, 05 Nov 2013</a></span>&nbsp;&mdash;&nbsp;<span class="rss-author">Caml Weekly News</span>, <span class="rss-date">05 Nov 2013</span></span><span class="rss-description">Robust left to right flow for record disambiguation / random-generator 0.1 / A useful Makefile collection for OCaml projects / ODT 3.0 released / LLVM OCaml bindings / Other Caml News</span>
-<a name="737918f3f7de75aff5c248083da4fc44"></a><span class="rss-header"><span class="rss-title"><a href="http://ocaml-book.com/blog/2013/10/25/every-thing-i-did-to-publish-ocaml-from-the-very-beginning"> Everything I did to self-publish a textbook about OCaml (except for the writing part)</a></span>&nbsp;&mdash;&nbsp;<span class="rss-author">OCaml Book</span>, <span class="rss-date">04 Nov 2013</span></span><span class="rss-description"><div id="post3"><p>Lots of what is written about the self-publishing of technical books comes from people who have a huge mailing list from blogging, or who are writing about a terribly fashionable subject and can create buzz (not that there's anything wrong with that).</p><p>Here is a description of the self-publishing of a rather traditional book, with no particular marketing involved. </p><h2>The book</h2><p>I wanted to write an introductory book about programming in OCaml (which I use for work) since I felt one was lacking, and decided to do the publishing myself. I had previously published <a href="http://shop.oreilly.com/product/0636920021483.do">PDF Explained</a> with O'Reilly. I was happy with O'Reilly, but not with the DocBook typesetting system, nor with the money. I couldn't justify taking time off to write another book if the money wasn't there.</p><p>The result is <a href="http://www.ocaml-book.com/">OCaml from the Very Beginning</a>. </p><h2>How many copies do books about programming sell? </h2><p>The <a href="http://www.novelrank.com">NovelRank</a> website tracks Amazon ranks and deduces rough sales numbers from them. One needs to extrapolate for non-Amazon sales, of course. For scale, here are the sales of some popular (and not so popular) programming books in paper form on Amazon worldwide for the month of October 2013, according to NovelRank. </p><a onclick="switchContent('post3','post4')" class="btn" href="#737918f3f7de75aff5c248083da4fc44">Read more...</a></div><div id="post4" style="display: none"><p>Lots of what is written about the self-publishing of technical books comes from people who have a huge mailing list from blogging, or who are writing about a terribly fashionable subject and can create buzz (not that there's anything wrong with that).</p><p>Here is a description of the self-publishing of a rather traditional book, with no particular marketing involved. </p><h2>The book</h2><p>I wanted to write an introductory book about programming in OCaml (which I use for work) since I felt one was lacking, and decided to do the publishing myself. I had previously published <a href="http://shop.oreilly.com/product/0636920021483.do">PDF Explained</a> with O'Reilly. I was happy with O'Reilly, but not with the DocBook typesetting system, nor with the money. I couldn't justify taking time off to write another book if the money wasn't there.</p><p>The result is <a href="http://www.ocaml-book.com/">OCaml from the Very Beginning</a>. </p><h2>How many copies do books about programming sell? </h2><p>The <a href="http://www.novelrank.com">NovelRank</a> website tracks Amazon ranks and deduces rough sales numbers from them. One needs to extrapolate for non-Amazon sales, of course. For scale, here are the sales of some popular (and not so popular) programming books in paper form on Amazon worldwide for the month of October 2013, according to NovelRank. </p><ul><li>Real World Haskell (O'Reilly) 66</li><li>Introduction to Algorithms (MIT, paperback only) 182</li><li>Learn you a Haskell for Great Good (No Starch) 158</li><li>Concrete Mathematics (Addison-Wesley) 114</li><li>ML for the Working Programmer (Cambridge Univ. Press) 15</li><li>Programming F# 3.0 (O'Reilly) 22</li></ul><p></p><p></p><h2>Content Production</h2><p>The interior was written in LaTeX. The cover was done in <a href="http://www.xara.com/us/designer-pro/">Xara Designer Pro</a> using a stock photograph I paid for. Writing was done over five months, in a total of 84 work days, whilst continuing with the usual commitments (business, teaching).</p><p>The kindle version was produced from the LaTeX sources using tex4ht to make a single big HTML file and then <a href="http://calibre-ebook.com">Calibre</a> to convert to an ebook. This is a rather horrible process, all told, which took about a week to get right, and resulted in a significant diff to the original .tex file. Getting it remotely presentable is hard work.</p><p>I still don't understand how people read these kind of books on Kindle, but they seem to. </p><h2>Selling on Amazon with CreateSpace</h2><p><a href="http://createspace.com/">CreateSpace</a> is a subsidiary of Amazon, which will print paperback books on demand and list them on Amazon. You just upload the PDF files for the interior and cover, and the rest is automatic. OCaml from the Very Beginning is 9 x 7.5 inches, 204 pages in black and white, with a full colour cover. It costs about $3.25 to print, and CreateSpace &amp; Amazon take a cut after that.</p><p>List Price: <strong>$39.99</strong>. Amazon routinely discounts to about <strong>$35</strong>. Profit about <strong>$21</strong> per copy.</p><h2>Selling on Amazon Kindle</h2><p>Kindle has a horrible pricing model for publishing these kind of books. 70% royalty on books priced $9.99 or below, 35% otherwise. So pricing a book between between $10 and $20 makes no sense. I priced the book roughly the same as the print one, and signed up for MatchBook. The hope is that people just buy the paper one, getting the Kindle one for free, and netting me the profit from the print one, not the meagre take from the kindle one. </p><p>Price <strong>$35</strong>. Profit about <strong>$11.50</strong>  per copy.</p><h2>Selling the DRM-free PDF eBook</h2><p>A PDF of the book, sold from the <a href="http://www.ocaml-book.com/">ocaml-book.com</a> website, using <a href="http://e-junkie.com">e-junkie</a> for content delivery and PayPal for payment processing.</p><p>Price: <strong>$14.99. </strong><span>Profit about </span><strong>$14.10 </strong>per copy<strong>.</strong></p><p><span></span></p><h2>Marketing</h2><p></p><p>I announced the book to the OCaml mailing list, and blogged about it. The website was on about the third page of google for the search "ocaml book" but it reasonably quickly climbed to the middle of the front page, where it is today. There were no sales for the first two days, but I know that sinking feeling from other projects and was prepared for it. Then sales started trickling in. I sent off review copies to the Journal of Functional Programming and a couple of bloggers.</p><p>This is, so far as I can remember, the sum total of active marketing effort so far. </p><h2>Legal and financial issues</h2><p>Both CreateSpace and Amazon Kindle will, by default, give 30% of your net earnings to the IRS unless you can prove you are not a US citizen and your country has an appropriate tax treaty. This is relatively easy to deal with if you publish through an existing corporation like I did, but apparently individuals have to jump through more hoops.  There is lots of conflicting information about these issues online. If you don't get it done in time, claiming the already-withheld money is hard too.</p><p></p><p>A bright spot is that there is a real direct email address with a real human at Amazon for dealing with this tax issue, and the Kindle and CreateSpace systems are linked so that, upon request, paperwork relating to the tax status of one can be transferred to the other. </p><p>I also had to deposit six copies of the printed book with copyright libraries in the UK and the Republic of Ireland, as a condition of using the ISBN.  Each country will have its own rules.</p><h2>Up-front costs</h2><ul><li>ISBNs (Pack of 10) $201</li><li>Postage of free copies to draft reviewers etc. $80</li><li>Proofs from CreateSpace with expedited shipping to the UK $134</li><li>25 copies for friends and so on, with expedited shipping $149</li><li>Stock photographs for cover and website $40</li></ul><p>Total <strong>$604. </strong>You could use a CreateSpace-assigned ISBN for free, get fewer proofs, and buy fewer sample copies and get this total down to about $150<strong>.</strong></p><p></p><p><span></span></p><h2>Running costs</h2><p></p><p><a href="http://www.squarespace.com">Squarespace</a> web hosting, $8 per month. <a href="http://www.e-junkie.com">E-junkie</a> for processing and content delivery of PDF eBook, $5 per month. Total <strong>$13</strong> per month. In theory, you could roll all this yourself for $0.</p><h2>Sales figures</h2><ul><li>June 7th-30th | Amazon 21, PDF eBook 13, Kindle 3 | Total net <strong>$652</strong></li><li>July | Amazon 12, PDF eBook 6, Kindle 15 | Total net <strong>$505</strong></li><li>August | Amazon 18, PDF eBook 9, Kindle 9 | Total net <strong>$603</strong></li><li>September | Amazon 24, PDF eBook 15, Kindle 9 | Total net <strong>$812</strong></li><li>October | Amazon 26, PDF eBook 20, Kindle 8 | Total net <strong>$912</strong></li></ul><p>It's hard to say how many copies will be sold in the next few years. There is another excellent OCaml book out soon (<a href="http://shop.oreilly.com/product/0636920024743.do">Real World OCaml</a> from O'Reilly), and things change with time. <span>However, should it sell a few hundred dollars a month steadily for the next five or ten years, I would consider it to be very decent pay for the work involved.</span></p><p>For comparison, here are the last five months' royalty payments from O'Reilly for PDF Explained: $99, $123, $99, $38, $109. (PDF Explained sells 50 - 100 copies a month, but is a smaller, cheaper book).  </p><p><span></span></p><h2>Some Advantages of traditional publishers</h2><p></p><ul><li>Traditional publishers might give you an advance on royalties (though I didn't get an advance from O'Reilly)</li><li><span>Traditional publishers will invest in translated editions (PDF Explained has been translated into Portuguese (Brazil) and Japanese). I will have to decide about, arrange, and pay for, translations for OCaml from the Very Beginning.</span></li><li><span></span><span>Traditional publishers have extra sales channels (I get part of a cent every time someone looks at a page of PDF Explained on <a href="http://www.safaribooksonline.com">Safari</a>, for example).</span></li><li>Traditional publishers will proof-read and edit the book and sometimes deal with things like indexing (though I had to write my own index for PDF Explained). To produce a book without an editor, you need to work hard and proof-read again and again.</li></ul><p></p><h2>Lessons</h2><p></p><ul><li>There is real money (as opposed to beer money) to be made, even if it's a niche book, so long as it sells consistently, and sales continue for several years. </li><li>Books require less maintenance than software, especially if written with that in mind (there's not a single URL in the book, and since it's a beginner's book, very little which might change). </li><li><span>If you can write and format a high quality book, the publishing side is really not hard at all in comparison. Once set up, the running costs and administration are trivial.</span></li></ul><p>At some point the industry might change such that it's not possible to earn $21 clear profit from a paperback textbook sale but until then, there's money to be made.</p><p></p><p></p><p></p><p> </p><a onclick="switchContent('post4','post3')" class="btn" href="#737918f3f7de75aff5c248083da4fc44">Hide</a></div></span>
-<a name="c6e15f0c356db12e60552f7609d8e57c"></a><span class="rss-header"><span class="rss-title"><a href="https://forge.ocamlcore.org/projects/opam2debian/"> opam2debian</a></span>&nbsp;&mdash;&nbsp;<span class="rss-author">OCamlCore Forge Projects</span>, <span class="rss-date">31 Oct 2013</span></span><span class="rss-description">Create Debian package which contains a compiled set of OPAM packages.  The VCS is on github: https://github.com/gildor478/opam2debian</span>
+<a name="737918f3f7de75aff5c248083da4fc44"></a><span class="rss-header"><span class="rss-title"><a href="http://ocaml-book.com/blog/2013/10/25/every-thing-i-did-to-publish-ocaml-from-the-very-beginning"> Everything I did to self-publish a textbook about OCaml (except for the writing part)</a></span>&nbsp;&mdash;&nbsp;<span class="rss-author">OCaml Book</span>, <span class="rss-date">04 Nov 2013</span></span><span class="rss-description"><div id="post9"><p>Lots of what is written about the self-publishing of technical books comes from people who have a huge mailing list from blogging, or who are writing about a terribly fashionable subject and can create buzz (not that there's anything wrong with that).</p><p>Here is a description of the self-publishing of a rather traditional book, with no particular marketing involved. </p><h2>The book</h2><p>I wanted to write an introductory book about programming in OCaml (which I use for work) since I felt one was lacking, and decided to do the publishing myself. I had previously published <a href="http://shop.oreilly.com/product/0636920021483.do">PDF Explained</a> with O'Reilly. I was happy with O'Reilly, but not with the DocBook typesetting system, nor with the money. I couldn't justify taking time off to write another book if the money wasn't there.</p><p>The result is <a href="http://www.ocaml-book.com/">OCaml from the Very Beginning</a>. </p><h2>How many copies do books about programming sell? </h2><p>The <a href="http://www.novelrank.com">NovelRank</a> website tracks Amazon ranks and deduces rough sales numbers from them. One needs to extrapolate for non-Amazon sales, of course. For scale, here are the sales of some popular (and not so popular) programming books in paper form on Amazon worldwide for the month of October 2013, according to NovelRank. </p><a onclick="switchContent('post9','post10')" class="btn" href="#737918f3f7de75aff5c248083da4fc44">Read more...</a></div><div id="post10" style="display: none"><p>Lots of what is written about the self-publishing of technical books comes from people who have a huge mailing list from blogging, or who are writing about a terribly fashionable subject and can create buzz (not that there's anything wrong with that).</p><p>Here is a description of the self-publishing of a rather traditional book, with no particular marketing involved. </p><h2>The book</h2><p>I wanted to write an introductory book about programming in OCaml (which I use for work) since I felt one was lacking, and decided to do the publishing myself. I had previously published <a href="http://shop.oreilly.com/product/0636920021483.do">PDF Explained</a> with O'Reilly. I was happy with O'Reilly, but not with the DocBook typesetting system, nor with the money. I couldn't justify taking time off to write another book if the money wasn't there.</p><p>The result is <a href="http://www.ocaml-book.com/">OCaml from the Very Beginning</a>. </p><h2>How many copies do books about programming sell? </h2><p>The <a href="http://www.novelrank.com">NovelRank</a> website tracks Amazon ranks and deduces rough sales numbers from them. One needs to extrapolate for non-Amazon sales, of course. For scale, here are the sales of some popular (and not so popular) programming books in paper form on Amazon worldwide for the month of October 2013, according to NovelRank. </p><ul><li>Real World Haskell (O'Reilly) 66</li><li>Introduction to Algorithms (MIT, paperback only) 182</li><li>Learn you a Haskell for Great Good (No Starch) 158</li><li>Concrete Mathematics (Addison-Wesley) 114</li><li>ML for the Working Programmer (Cambridge Univ. Press) 15</li><li>Programming F# 3.0 (O'Reilly) 22</li></ul><p></p><p></p><h2>Content Production</h2><p>The interior was written in LaTeX. The cover was done in <a href="http://www.xara.com/us/designer-pro/">Xara Designer Pro</a> using a stock photograph I paid for. Writing was done over five months, in a total of 84 work days, whilst continuing with the usual commitments (business, teaching).</p><p>The kindle version was produced from the LaTeX sources using tex4ht to make a single big HTML file and then <a href="http://calibre-ebook.com">Calibre</a> to convert to an ebook. This is a rather horrible process, all told, which took about a week to get right, and resulted in a significant diff to the original .tex file. Getting it remotely presentable is hard work.</p><p>I still don't understand how people read these kind of books on Kindle, but they seem to. </p><h2>Selling on Amazon with CreateSpace</h2><p><a href="http://createspace.com/">CreateSpace</a> is a subsidiary of Amazon, which will print paperback books on demand and list them on Amazon. You just upload the PDF files for the interior and cover, and the rest is automatic. OCaml from the Very Beginning is 9 x 7.5 inches, 204 pages in black and white, with a full colour cover. It costs about $3.25 to print, and CreateSpace &amp; Amazon take a cut after that.</p><p>List Price: <strong>$39.99</strong>. Amazon routinely discounts to about <strong>$35</strong>. Profit about <strong>$21</strong> per copy.</p><h2>Selling on Amazon Kindle</h2><p>Kindle has a horrible pricing model for publishing these kind of books. 70% royalty on books priced $9.99 or below, 35% otherwise. So pricing a book between between $10 and $20 makes no sense. I priced the book roughly the same as the print one, and signed up for MatchBook. The hope is that people just buy the paper one, getting the Kindle one for free, and netting me the profit from the print one, not the meagre take from the kindle one. </p><p>Price <strong>$35</strong>. Profit about <strong>$11.50</strong>  per copy.</p><h2>Selling the DRM-free PDF eBook</h2><p>A PDF of the book, sold from the <a href="http://www.ocaml-book.com/">ocaml-book.com</a> website, using <a href="http://e-junkie.com">e-junkie</a> for content delivery and PayPal for payment processing.</p><p>Price: <strong>$14.99. </strong><span>Profit about </span><strong>$14.10 </strong>per copy<strong>.</strong></p><p><span></span></p><h2>Marketing</h2><p></p><p>I announced the book to the OCaml mailing list, and blogged about it. The website was on about the third page of google for the search "ocaml book" but it reasonably quickly climbed to the middle of the front page, where it is today. There were no sales for the first two days, but I know that sinking feeling from other projects and was prepared for it. Then sales started trickling in. I sent off review copies to the Journal of Functional Programming and a couple of bloggers.</p><p>This is, so far as I can remember, the sum total of active marketing effort so far. </p><h2>Legal and financial issues</h2><p>Both CreateSpace and Amazon Kindle will, by default, give 30% of your net earnings to the IRS unless you can prove you are not a US citizen and your country has an appropriate tax treaty. This is relatively easy to deal with if you publish through an existing corporation like I did, but apparently individuals have to jump through more hoops.  There is lots of conflicting information about these issues online. If you don't get it done in time, claiming the already-withheld money is hard too.</p><p></p><p>A bright spot is that there is a real direct email address with a real human at Amazon for dealing with this tax issue, and the Kindle and CreateSpace systems are linked so that, upon request, paperwork relating to the tax status of one can be transferred to the other. </p><p>I also had to deposit six copies of the printed book with copyright libraries in the UK and the Republic of Ireland, as a condition of using the ISBN.  Each country will have its own rules.</p><h2>Up-front costs</h2><ul><li>ISBNs (Pack of 10) $201</li><li>Postage of free copies to draft reviewers etc. $80</li><li>Proofs from CreateSpace with expedited shipping to the UK $134</li><li>25 copies for friends and so on, with expedited shipping $149</li><li>Stock photographs for cover and website $40</li></ul><p>Total <strong>$604. </strong>You could use a CreateSpace-assigned ISBN for free, get fewer proofs, and buy fewer sample copies and get this total down to about $150<strong>.</strong></p><p></p><p><span></span></p><h2>Running costs</h2><p></p><p><a href="http://www.squarespace.com">Squarespace</a> web hosting, $8 per month. <a href="http://www.e-junkie.com">E-junkie</a> for processing and content delivery of PDF eBook, $5 per month. Total <strong>$13</strong> per month. In theory, you could roll all this yourself for $0.</p><h2>Sales figures</h2><ul><li>June 7th-30th | Amazon 21, PDF eBook 13, Kindle 3 | Total net <strong>$652</strong></li><li>July | Amazon 12, PDF eBook 6, Kindle 15 | Total net <strong>$505</strong></li><li>August | Amazon 18, PDF eBook 9, Kindle 9 | Total net <strong>$603</strong></li><li>September | Amazon 24, PDF eBook 15, Kindle 9 | Total net <strong>$812</strong></li><li>October | Amazon 26, PDF eBook 20, Kindle 8 | Total net <strong>$912</strong></li></ul><p>It's hard to say how many copies will be sold in the next few years. There is another excellent OCaml book out soon (<a href="http://shop.oreilly.com/product/0636920024743.do">Real World OCaml</a> from O'Reilly), and things change with time. <span>However, should it sell a few hundred dollars a month steadily for the next five or ten years, I would consider it to be very decent pay for the work involved.</span></p><p>For comparison, here are the last five months' royalty payments from O'Reilly for PDF Explained: $99, $123, $99, $38, $109. (PDF Explained sells 50 - 100 copies a month, but is a smaller, cheaper book).  </p><p><span></span></p><h2>Some Advantages of traditional publishers</h2><p></p><ul><li>Traditional publishers might give you an advance on royalties (though I didn't get an advance from O'Reilly)</li><li><span>Traditional publishers will invest in translated editions (PDF Explained has been translated into Portuguese (Brazil) and Japanese). I will have to decide about, arrange, and pay for, translations for OCaml from the Very Beginning.</span></li><li><span></span><span>Traditional publishers have extra sales channels (I get part of a cent every time someone looks at a page of PDF Explained on <a href="http://www.safaribooksonline.com">Safari</a>, for example).</span></li><li>Traditional publishers will proof-read and edit the book and sometimes deal with things like indexing (though I had to write my own index for PDF Explained). To produce a book without an editor, you need to work hard and proof-read again and again.</li></ul><p></p><h2>Lessons</h2><p></p><ul><li>There is real money (as opposed to beer money) to be made, even if it's a niche book, so long as it sells consistently, and sales continue for several years. </li><li>Books require less maintenance than software, especially if written with that in mind (there's not a single URL in the book, and since it's a beginner's book, very little which might change). </li><li><span>If you can write and format a high quality book, the publishing side is really not hard at all in comparison. Once set up, the running costs and administration are trivial.</span></li></ul><p>At some point the industry might change such that it's not possible to earn $21 clear profit from a paperback textbook sale but until then, there's money to be made.</p><p></p><p></p><p></p><p> </p><a onclick="switchContent('post10','post9')" class="btn" href="#737918f3f7de75aff5c248083da4fc44">Hide</a></div></span>
+<a name="c6e15f0c356db12e60552f7609d8e57c"></a><span class="rss-header"><span class="rss-title"><a href="https://forge.ocamlcore.org/projects/opam2debian/"> opam2debian</a></span>&nbsp;&mdash;&nbsp;<span class="rss-author">OCamlCore Forge Projects</span>, <span class="rss-date">31 Oct 2013</span></span><span class="rss-description">Create Debian package which contains a compiled set of OPAM packages.  The VCS and the bug tracker are on github: https://github.com/gildor478/opam2debian</span>
 <a name="48931886f38792232e560c45db71a093"></a><span class="rss-header"><span class="rss-title"><a href="http://ocamllabs.github.com/compiler-hacking/2013/10/30/third-compiler-hacking-session.html"> Third OCaml compiler hacking session</a></span>&nbsp;&mdash;&nbsp;<span class="rss-author"><span id="ocaml_1">OCaml Labs compiler hacking &#9001;cl-ocamllabs<abbr title="(at) &rarr; @">(at)</abbr>lists.cam.ac.uk (OCaml Labs)&#9002;</span><script type="text/javascript"><!--;
 local = "cl-ocamllabs";
 h = "lists.cam.ac.uk (OCaml Labs)";
 hq = "lists.cam.ac.uk%20(OCaml%20Labs)";
 document.getElementById("ocaml_1").innerHTML = '<a href="mailto:' + local + '@' + hq + "\" >OCaml Labs compiler hacking<\/a>";
-//--></script></span>, <span class="rss-date">30 Oct 2013</span></span><span class="rss-description"><div id="post5"><p>It's time for the third Cambridge OCaml compiler-hacking session!  This time we're going to be back in the <a href="http://www.cl.cam.ac.uk/">Computer Lab</a>, where the first session was held.</p>
+//--></script></span>, <span class="rss-date">30 Oct 2013</span></span><span class="rss-description"><div id="post11"><p>It's time for the third Cambridge OCaml compiler-hacking session!  This time we're going to be back in the <a href="http://www.cl.cam.ac.uk/">Computer Lab</a>, where the first session was held.</p>
 
 <p>If you're planning to come along, it'd be helpful if you could <a href="http://doodle.com/czzp7ik4r72npz6p"><strong>indicate interest via Doodle</strong></a> and <a href="http://lists.ocaml.org/listinfo/cam-compiler-hacking"><strong>sign up to the mailing list</strong></a> to receive updates:</p>
 
@@ -228,7 +550,7 @@ document.getElementById("ocaml_1").innerHTML = '<a href="mailto:' + local + '@' 
 
 <p>We're defining "compiler" pretty broadly, to include anything that's part of the standard distribution, which means at least the <a href="http://caml.inria.fr/pub/docs/manual-ocaml-4.01/libref/index.html">standard library</a>, <a href="http://caml.inria.fr/pub/docs/manual-ocaml-4.00/manual024.html">runtime</a>, tools (<a href="http://caml.inria.fr/pub/docs/manual-ocaml-4.01/depend.html">ocamldep</a>, <a href="http://caml.inria.fr/pub/docs/manual-ocaml-4.00/manual026.html#toc105">ocamllex</a>, <a href="http://caml.inria.fr/pub/docs/manual-ocaml-4.00/manual026.html#toc107">ocamlyacc</a>, etc.), <a href="http://caml.inria.fr/pub/docs/manual-camlp4/manual002.html">camlp4</a>, <a href="http://caml.inria.fr/pub/docs/manual-ocaml-4.00/manual032.html">ocamlbuild</a>, the <a href="http://caml.inria.fr/resources/doc/index.en.html">documentation</a>, and the compiler itself.  We'll have suggestions for <a href="https://github.com/ocamllabs/compiler-hacking/wiki/Things-to-work-on">mini-projects</a> for various levels of experience, but feel free to come along and work on whatever you fancy.</p>
 
-<a onclick="switchContent('post5','post6')" class="btn" href="#48931886f38792232e560c45db71a093">Read more...</a></div><div id="post6" style="display: none"><p>It's time for the third Cambridge OCaml compiler-hacking session!  This time we're going to be back in the <a href="http://www.cl.cam.ac.uk/">Computer Lab</a>, where the first session was held.</p>
+<a onclick="switchContent('post11','post12')" class="btn" href="#48931886f38792232e560c45db71a093">Read more...</a></div><div id="post12" style="display: none"><p>It's time for the third Cambridge OCaml compiler-hacking session!  This time we're going to be back in the <a href="http://www.cl.cam.ac.uk/">Computer Lab</a>, where the first session was held.</p>
 
 <p>If you're planning to come along, it'd be helpful if you could <a href="http://doodle.com/czzp7ik4r72npz6p"><strong>indicate interest via Doodle</strong></a> and <a href="http://lists.ocaml.org/listinfo/cam-compiler-hacking"><strong>sign up to the mailing list</strong></a> to receive updates:</p>
 
@@ -244,10 +566,10 @@ document.getElementById("ocaml_1").innerHTML = '<a href="mailto:' + local + '@' 
 
 <p>We're defining "compiler" pretty broadly, to include anything that's part of the standard distribution, which means at least the <a href="http://caml.inria.fr/pub/docs/manual-ocaml-4.01/libref/index.html">standard library</a>, <a href="http://caml.inria.fr/pub/docs/manual-ocaml-4.00/manual024.html">runtime</a>, tools (<a href="http://caml.inria.fr/pub/docs/manual-ocaml-4.01/depend.html">ocamldep</a>, <a href="http://caml.inria.fr/pub/docs/manual-ocaml-4.00/manual026.html#toc105">ocamllex</a>, <a href="http://caml.inria.fr/pub/docs/manual-ocaml-4.00/manual026.html#toc107">ocamlyacc</a>, etc.), <a href="http://caml.inria.fr/pub/docs/manual-camlp4/manual002.html">camlp4</a>, <a href="http://caml.inria.fr/pub/docs/manual-ocaml-4.00/manual032.html">ocamlbuild</a>, the <a href="http://caml.inria.fr/resources/doc/index.en.html">documentation</a>, and the compiler itself.  We'll have suggestions for <a href="https://github.com/ocamllabs/compiler-hacking/wiki/Things-to-work-on">mini-projects</a> for various levels of experience, but feel free to come along and work on whatever you fancy.</p>
 
-<p>We'll also be ordering pizza, so if you want to be counted for food you should aim to arrive by 6.30pm.</p><a onclick="switchContent('post6','post5')" class="btn" href="#48931886f38792232e560c45db71a093">Hide</a></div></span>
-<a name="8afa1a9b537573ed5bef4fa6cf597e30"></a><span class="rss-header"><span class="rss-title"><a href="http://syntaxexclamation.wordpress.com/2013/10/29/new-draft-on-normalization-by-evaluation-using-gadts/"> New draft on Normalization by Evaluation using GADTs</a></span>&nbsp;&mdash;&nbsp;<span class="rss-author">Matthias Puech</span>, <span class="rss-date">29 Oct 2013</span></span><span class="rss-description"><div id="post7"><p>There is a <a href="http://cs.au.dk/~mpuech/typeful.pdf" title="Tagless and Typeful Normalization by Evaluation using Generalized Algebraic Data Types">new draft</a> on my web page! It is called <em>Tagless and Typeful Normalization by Evaluation using Generalized Algebraic Data Types</em>, which is a mouthful, but only describes accurately the cool new OCaml development we elaborated together with <a href="http://www.cs.au.dk/~danvy/" title="Olivier Danvy">Olivier</a> and <a href="http://cs.au.dk/~chkeller" title="Chantal Keller">Chantal</a>. The world of Normalization by Evaluation (NbE) is still relatively new to me, but its wonders keep amazing me. It’s a program specialization algorithm… no, it’s a completeness proof for first-order logic… wait, it’s a technique to turn an interpreter into a compiler! Definitely, Aarhus University, my new home, is not the worst place to learn about it.</p>
+<p>We'll also be ordering pizza, so if you want to be counted for food you should aim to arrive by 6.30pm.</p><a onclick="switchContent('post12','post11')" class="btn" href="#48931886f38792232e560c45db71a093">Hide</a></div></span>
+<a name="8afa1a9b537573ed5bef4fa6cf597e30"></a><span class="rss-header"><span class="rss-title"><a href="http://syntaxexclamation.wordpress.com/2013/10/29/new-draft-on-normalization-by-evaluation-using-gadts/"> New draft on Normalization by Evaluation using GADTs</a></span>&nbsp;&mdash;&nbsp;<span class="rss-author">Matthias Puech</span>, <span class="rss-date">29 Oct 2013</span></span><span class="rss-description"><div id="post13"><p>There is a <a href="http://cs.au.dk/~mpuech/typeful.pdf" title="Tagless and Typeful Normalization by Evaluation using Generalized Algebraic Data Types">new draft</a> on my web page! It is called <em>Tagless and Typeful Normalization by Evaluation using Generalized Algebraic Data Types</em>, which is a mouthful, but only describes accurately the cool new OCaml development we elaborated together with <a href="http://www.cs.au.dk/~danvy/" title="Olivier Danvy">Olivier</a> and <a href="http://cs.au.dk/~chkeller" title="Chantal Keller">Chantal</a>. The world of Normalization by Evaluation (NbE) is still relatively new to me, but its wonders keep amazing me. It’s a program specialization algorithm… no, it’s a completeness proof for first-order logic… wait, it’s a technique to turn an interpreter into a compiler! Definitely, Aarhus University, my new home, is not the worst place to learn about it.</p>
 <p>Since the introduction of GADTs in OCaml, a whole new realm of applications emerged, the most well-known being to faithfully represent typed languages: it allows to define compact and correct interpreters, and type-preserving program transformations. Ok, if you never saw this, here is a small snippet that should be self-explanatory:</p>
-<a onclick="switchContent('post7','post8')" class="btn" href="#8afa1a9b537573ed5bef4fa6cf597e30">Read more...</a></div><div id="post8" style="display: none"><p>There is a <a href="http://cs.au.dk/~mpuech/typeful.pdf" title="Tagless and Typeful Normalization by Evaluation using Generalized Algebraic Data Types">new draft</a> on my web page! It is called <em>Tagless and Typeful Normalization by Evaluation using Generalized Algebraic Data Types</em>, which is a mouthful, but only describes accurately the cool new OCaml development we elaborated together with <a href="http://www.cs.au.dk/~danvy/" title="Olivier Danvy">Olivier</a> and <a href="http://cs.au.dk/~chkeller" title="Chantal Keller">Chantal</a>. The world of Normalization by Evaluation (NbE) is still relatively new to me, but its wonders keep amazing me. It’s a program specialization algorithm… no, it’s a completeness proof for first-order logic… wait, it’s a technique to turn an interpreter into a compiler! Definitely, Aarhus University, my new home, is not the worst place to learn about it.</p>
+<a onclick="switchContent('post13','post14')" class="btn" href="#8afa1a9b537573ed5bef4fa6cf597e30">Read more...</a></div><div id="post14" style="display: none"><p>There is a <a href="http://cs.au.dk/~mpuech/typeful.pdf" title="Tagless and Typeful Normalization by Evaluation using Generalized Algebraic Data Types">new draft</a> on my web page! It is called <em>Tagless and Typeful Normalization by Evaluation using Generalized Algebraic Data Types</em>, which is a mouthful, but only describes accurately the cool new OCaml development we elaborated together with <a href="http://www.cs.au.dk/~danvy/" title="Olivier Danvy">Olivier</a> and <a href="http://cs.au.dk/~chkeller" title="Chantal Keller">Chantal</a>. The world of Normalization by Evaluation (NbE) is still relatively new to me, but its wonders keep amazing me. It’s a program specialization algorithm… no, it’s a completeness proof for first-order logic… wait, it’s a technique to turn an interpreter into a compiler! Definitely, Aarhus University, my new home, is not the worst place to learn about it.</p>
 <p>Since the introduction of GADTs in OCaml, a whole new realm of applications emerged, the most well-known being to faithfully represent typed languages: it allows to define compact and correct interpreters, and type-preserving program transformations. Ok, if you never saw this, here is a small snippet that should be self-explanatory:</p>
 <pre class="brush: fsharp; title: ; notranslate">type _ exp =
   | Val : 'a -&gt; 'a exp
@@ -265,15 +587,15 @@ assert (eval (Eq (Add (Val 2, Val 2), Val 4)))
 <p>The answer is a proud “yes”, but more interestingly, we all learned some interesting GADT techniques and puzzling logical interpretations on the way. Read on to know more!</p>
 <blockquote><p><a href="http://cs.au.dk/~mpuech/typeful.pdf"><strong>Tagless and Typeful Normalization by Evaluation using Generalized Algebraic Data Types</strong></a></p>
 <p>We present the first tagless and typeful implementation of normalization by evaluation for the simply typed λ-calculus in OCaml, using Generalized Algebraic Data Types (GADTs). In contrast to normalization by reduction, which is operationally carried out by repeated instances of one-step reduction, normalization by evaluation uses a non-standard model to internalize intermediate results: it is defined by composing a non-standard evaluation function with a reification function that maps the denotation of a term into the normal form of this term. So far, normalization by evaluation has been implemented either in dependently-typed languages such as Coq or Agda, or in general-purpose languages such as Scheme, ML or Haskell. In the latter case, denotations are either tagged or Church-encoded. Tagging means injecting denotations, either implicitly or explicitly, into a universal domain of values; Church encoding is based on the impredicativity of the metalanguage. Here, we show how to obtain not only tagless values, making evaluation efficient, but also typeful reification, guaranteeing type preservation and η-long, β-normal forms. To this end, we put OCaml’s GADTs to work. Furthermore, our implementation does not depend on any particular representation of binders (HOAS, de Bruijn levels or indices) nor on the style (direct style, continuation-passing style, etc.) of the non-standard evaluation function.</p></blockquote>
-<p>PS: My previous draft, <a href="http://syntaxexclamation.wordpress.com/2013/06/17/new-draft-proofs-upside-down/" title="New draft: Proofs, upside down">Proofs, upside down</a> was accepted for presentation at <a href="http://aplas2013.soic.indiana.edu/" title="APLAS 2013">APLAS 2013</a>. See you in Melbourne!</p><br/>  <a href="http://feeds.wordpress.com/1.0/gocomments/syntaxexclamation.wordpress.com/453/" rel="nofollow"><img src="http://feeds.wordpress.com/1.0/comments/syntaxexclamation.wordpress.com/453/" alt="" border="0"/></a> <img src="http://stats.wordpress.com/b.gif?host=syntaxexclamation.wordpress.com&amp;blog=14690639&amp;post=453&amp;subd=syntaxexclamation&amp;ref=&amp;feed=1" alt="" height="1" border="0" width="1"/><a onclick="switchContent('post8','post7')" class="btn" href="#8afa1a9b537573ed5bef4fa6cf597e30">Hide</a></div></span>
-<a name="104b8723f43ad442f402379fcb6f8f89"></a><span class="rss-header"><span class="rss-title"><a href="http://amirchaudhry.com/fpdays-review"> Review of the OCaml FPDays tutorial</a></span>&nbsp;&mdash;&nbsp;<span class="rss-author">Amir Chaudhry</span>, <span class="rss-date">28 Oct 2013</span></span><span class="rss-description"><div id="post9"><a href="http://fpdays.net/2013/sessions/index.php?session=24"><img src="http://feeds.feedburner.com/images/web/fpdays-logo.png" style="float: right; margin-top: 10px; margin-left: 10px;"/></a>
+<p>PS: My previous draft, <a href="http://syntaxexclamation.wordpress.com/2013/06/17/new-draft-proofs-upside-down/" title="New draft: Proofs, upside down">Proofs, upside down</a> was accepted for presentation at <a href="http://aplas2013.soic.indiana.edu/" title="APLAS 2013">APLAS 2013</a>. See you in Melbourne!</p><br/>  <a href="http://feeds.wordpress.com/1.0/gocomments/syntaxexclamation.wordpress.com/453/" rel="nofollow"><img src="http://feeds.wordpress.com/1.0/comments/syntaxexclamation.wordpress.com/453/" alt="" border="0"/></a> <img src="http://stats.wordpress.com/b.gif?host=syntaxexclamation.wordpress.com&amp;blog=14690639&amp;post=453&amp;subd=syntaxexclamation&amp;ref=&amp;feed=1" alt="" height="1" border="0" width="1"/><a onclick="switchContent('post14','post13')" class="btn" href="#8afa1a9b537573ed5bef4fa6cf597e30">Hide</a></div></span>
+<a name="104b8723f43ad442f402379fcb6f8f89"></a><span class="rss-header"><span class="rss-title"><a href="http://amirchaudhry.com/fpdays-review"> Review of the OCaml FPDays tutorial</a></span>&nbsp;&mdash;&nbsp;<span class="rss-author">Amir Chaudhry</span>, <span class="rss-date">28 Oct 2013</span></span><span class="rss-description"><div id="post15"><a href="http://fpdays.net/2013/sessions/index.php?session=24"><img src="http://feeds.feedburner.com/images/web/fpdays-logo.png" style="float: right; margin-top: 10px; margin-left: 10px;"/></a>
 <p>Last Thursday a bunch of us from the OCaml Labs team gave an OCaml tutorial at the <a href="http://fpdays.net/2013/sessions/index.php?session=24">FPDays</a> conference (an event for people interested in Functional Programming). <a href="https://github.com/yallop">Jeremy</a> and I led the session with <a href="http://www.lpw25.net">Leo</a>, <a href="https://github.com/dsheets">David</a> and <a href="http://philippewang.info/CL/">Philippe</a> helping everyone progress and dealing with questions.</p>
 <img src="http://feeds.feedburner.com/images/fpdays2013/fpdays2013-01.jpg" style="float: left; margin-right: 10px;"/>
 <p>It turned out to be by far the <em>most popular session</em> at the conference with over 20 people all wanting to get to grips with OCaml! An excellent turnout and a great indicator of the interest that’s out there, especially when you offer a hands-on session to people. This shouldn’t be a surprise as we’ve had good attendance for the general <a href="http://www.meetup.com/Cambridge-NonDysFunctional-Programmers/">OCaml meetups</a> I’ve run and also the <a href="http://ocamllabs.github.io/compiler-hacking/2013/09/17/compiler-hacking-july-2013.html">compiler hacking sessions</a>, which Jeremy and Leo have been building up (do sign up if you’re interested in either of those!). We had a nice surprise for attendees, which were <a href="http://en.wikipedia.org/wiki/Galley_proof">uncorrected proof</a> copies of Real World OCaml and luckily, we had just enough to go around.</p>
 
 <p>For the tutorial itself, Jeremy put together a nice sequence of exercises and a <a href="https://github.com/ocamllabs/fpdays-skeleton">skeleton repo</a> (with helpful comments in the code) so that people could dive in quickly. The event was set up to be really informal and the rough plan was as following:</p>
 
-<a onclick="switchContent('post9','post10')" class="btn" href="#104b8723f43ad442f402379fcb6f8f89">Read more...</a></div><div id="post10" style="display: none"><a href="http://fpdays.net/2013/sessions/index.php?session=24"><img src="http://feeds.feedburner.com/images/web/fpdays-logo.png" style="float: right; margin-top: 10px; margin-left: 10px;"/></a>
+<a onclick="switchContent('post15','post16')" class="btn" href="#104b8723f43ad442f402379fcb6f8f89">Read more...</a></div><div id="post16" style="display: none"><a href="http://fpdays.net/2013/sessions/index.php?session=24"><img src="http://feeds.feedburner.com/images/web/fpdays-logo.png" style="float: right; margin-top: 10px; margin-left: 10px;"/></a>
 <p>Last Thursday a bunch of us from the OCaml Labs team gave an OCaml tutorial at the <a href="http://fpdays.net/2013/sessions/index.php?session=24">FPDays</a> conference (an event for people interested in Functional Programming). <a href="https://github.com/yallop">Jeremy</a> and I led the session with <a href="http://www.lpw25.net">Leo</a>, <a href="https://github.com/dsheets">David</a> and <a href="http://philippewang.info/CL/">Philippe</a> helping everyone progress and dealing with questions.</p>
 <img src="http://feeds.feedburner.com/images/fpdays2013/fpdays2013-01.jpg" style="float: left; margin-right: 10px;"/>
 <p>It turned out to be by far the <em>most popular session</em> at the conference with over 20 people all wanting to get to grips with OCaml! An excellent turnout and a great indicator of the interest that’s out there, especially when you offer a hands-on session to people. This shouldn’t be a surprise as we’ve had good attendance for the general <a href="http://www.meetup.com/Cambridge-NonDysFunctional-Programmers/">OCaml meetups</a> I’ve run and also the <a href="http://ocamllabs.github.io/compiler-hacking/2013/09/17/compiler-hacking-july-2013.html">compiler hacking sessions</a>, which Jeremy and Leo have been building up (do sign up if you’re interested in either of those!). We had a nice surprise for attendees, which were <a href="http://en.wikipedia.org/wiki/Galley_proof">uncorrected proof</a> copies of Real World OCaml and luckily, we had just enough to go around.</p>
@@ -370,21 +692,7 @@ assert (eval (Eq (Add (Val 2, Val 2), Val 4)))
 
 <p><img src="http://feeds.feedburner.com/images/fpdays2013/fpdays2013-04.jpg" alt="RWO Book giveaway"/></p>
 
-<p>(Thanks to Jeremy, Leo, David and Philippe for contributions to this post)</p><a onclick="switchContent('post10','post9')" class="btn" href="#104b8723f43ad442f402379fcb6f8f89">Hide</a></div></span>
-<a name="9251389c28628a537d8247c99ab8f618"></a><span class="rss-header"><span class="rss-title"><a href="http://cufp.org/news/2013/cufp-2013-registration-information"> CUFP 2013 Registration Information</a></span>&nbsp;&mdash;&nbsp;<span class="rss-author">CUFP</span>, <span class="rss-date">25 Oct 2013</span></span><span class="rss-description"><p>The ICFP conference registration process has opened, and we've posted detailed information on how to register for CUFP <a href="http://cufp.org/cufp-2013-registration">here</a>.</p></span>
-<a name="822a32747565018bd53e9ff1e4740952"></a><span class="rss-header"><span class="rss-title"><a href="http://cufp.org/news/2013/cufp-2013-call-tutorials"> CUFP 2013 Call for Tutorials</a></span>&nbsp;&mdash;&nbsp;<span class="rss-author">CUFP</span>, <span class="rss-date">25 Oct 2013</span></span><span class="rss-description"><p>Simon and Francesco, tutorial organizers for CUFP 2013, have put out a <a href="http://cufp.org/cufp2013-call-tutorials">call for tutorials</a>.</p>
-
-<p>This is a great opportunity to teach FP or FP techniques to an eager audience.</p></span>
-<a name="d77c69cee430ca8104ad55ecb708e439"></a><span class="rss-header"><span class="rss-title"><a href="https://forge.ocamlcore.org/forum/forum.php?forum_id=889"> Handling spam on the forge</a></span>&nbsp;&mdash;&nbsp;<span class="rss-author">OCamlCore Forge News</span>, <span class="rss-date">25 Oct 2013</span></span><span class="rss-description"><pre class="rss-text">Someone recently opens a bug against OUnit which contains a strange HTML attachment. This was a spam with an embedded page about whatever Life Insurance.
-
-This is something I don't want to see on the Forge. I deleted the bug and suspended the user.
-
-If you see this kind of spam in the bug tracking, don't delete the spam. Report a bug about it using the "Report bug" link in the footer and I will take care of deleting the bug and suspending the user.
-
-Concerning mailing list, this is a bigger problem I need to address using another technique (still to be decided, suggestions are welcome). 
-
-Happy hacking
-Sylvain Le Gall</pre></span>
+<p>(Thanks to Jeremy, Leo, David and Philippe for contributions to this post)</p><a onclick="switchContent('post16','post15')" class="btn" href="#104b8723f43ad442f402379fcb6f8f89">Hide</a></div></span>
 <script type="text/javascript">function switchContent(id1,id2) {
      // Get the DOM reference
      var contentId1 = document.getElementById(id1);
