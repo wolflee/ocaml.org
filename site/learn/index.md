@@ -34,7 +34,7 @@
             </footer>
         </section>
         <section class="span4 condensed">
-            <h1 class="ruled">Tutorials</h1>
+            <h1 class="ruled">Tutorials &amp; FAQ</h1>
             <ul>
                 <li><a href="tutorials/basics.html">Basics</a></li>
                 <li><a href="tutorials/structure_of_ocaml_programs.html">Structure of OCaml Programs</a></li>
@@ -43,6 +43,7 @@
                 <li><a href="tutorials/hashtbl.html">Hash Tables</a></li>
                 <li><a href="tutorials/comparison_of_standard_containers.html">Comparison of Standard Containers</a></li>
                 <li><a href="tutorials/data_types_and_matching.html">Data Types and Matching</a></li>
+				<li><a href="faq.html">Frequently Asked Questions</a></li>
             </ul>
             <footer>
                 <p><a href="tutorials">See full list</a></p>
@@ -66,16 +67,20 @@
     </div>
     <div class="row">
         <section class="span4 condensed">
-          <h1 class="ruled">Common Questions</h1>
-          <ul>
-            <li><a href="faq.html#GeneralQuestions">General Questions</a></li>
-            <li><a href="faq.html#CoreLanguage">Core Language</a></li>
-            <li><a href="faq.html#ModuleLanguage">Module Language</a></li>
-            <li><a href="faq.html#DevelopmentTools">Development Tools</a></li>
-          </ul>
-          <footer>
-            <p><a href="faq.html">See full list</a></p>
-          </footer>
+          <h1 class="ruled">Slides &amp; Videos</h1>
+			<p class="documentation-video">
+			<a href="/meetings/ocaml/2013/slides/leroy.pdf"
+			  ><img src="/img/The_state_of_OCaml13.jpg"
+			  style="border: 1px solid #c4c4c4" /></a></p>
+		    <p>An invited talk by Xavier Leroy explaining the current state
+			of OCaml at the
+			<a href="/meetings/ocaml/2013/" >OCaml Users and Developers
+			Workshop 2013</a> in Boston.
+			</p>
+	        <p class="documentation-video">
+			<iframe src="//player.vimeo.com/video/14313378?portrait=0&amp;color=ff9933" width="310" height="175" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+			</p>
+			<p>A guest lecture given by Yaron Minsky of Jane Street about how to program effectively in ML. The talk was given as part of the intro computer science class at Harvard, CS51, where the students had spent much of the semester programming in OCaml.</p>
         </section>
         <section class="span4 condensed">
           <h1 class="ruled">Industrial
